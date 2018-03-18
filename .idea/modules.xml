@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/aChater.iml" filepath="$PROJECT_DIR$/.idea/modules/aChater.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/aChater_main.iml" filepath="$PROJECT_DIR$/.idea/modules/aChater_main.iml" group="aChater" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/aChater_test.iml" filepath="$PROJECT_DIR$/.idea/modules/aChater_test.iml" group="aChater" />
+    </modules>
+  </component>
+</project>
