@@ -1,6 +1,7 @@
 package com.lingxiao.web.achat.push.service;
 
-import com.lingxiao.web.achat.push.bean.User;
+
+import com.lingxiao.web.achat.push.bean.db.UserDb;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -21,8 +22,8 @@ public class AccountService {
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public User post(){
-        User user = new User();
+    public UserDb post(){
+        UserDb user = new UserDb();
         user.setName("美女");
         user.setSex(2);
         return user;

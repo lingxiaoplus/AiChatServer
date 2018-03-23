@@ -84,6 +84,13 @@ public class UserDb {
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<UserFollowDb> followers = new HashSet<>();
 
+
+    @JoinColumn(name = "ownerId")
+    //懒加载 默认加载user信息的时候不查询这个集合
+    @LazyCollection(LazyCollectionOption.EXTRA)
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private Set<GroupDb> groups = new HashSet<>();
+
     public String getId() {
         return id;
     }
@@ -194,5 +201,13 @@ public class UserDb {
 
     public void setFollowers(Set<UserFollowDb> followers) {
         this.followers = followers;
+    }
+
+    public Set<GroupDb> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Set<GroupDb> groups) {
+        this.groups = groups;
     }
 }

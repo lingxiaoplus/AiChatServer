@@ -1,6 +1,5 @@
 package com.lingxiao.web.achat.push.bean.db;
 
-import com.lingxiao.web.achat.push.bean.User;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -27,19 +26,19 @@ public class UserFollowDb {
     @ManyToOne(optional = false)
     //定义关联的表字段名为originId，对应的是user.id
     @JoinColumn(name = "originId")
-    private User origin;
+    private UserDb origin;
     @Column(nullable = false,updatable = false,insertable = false)
     private String originId;
     //被关注的人
     @ManyToOne(optional = false)
     @JoinColumn(name = "targetId")
-    private User target;
+    private UserDb target;
     @Column(nullable = false,updatable = false,insertable = false)
     private String targetId;
 
     //备注 --别名
     @Column
-    private User alias;
+    private UserDb alias;
 
     //定义为创建时间戳，在创建时就写入
     @CreationTimestamp
@@ -51,4 +50,68 @@ public class UserFollowDb {
     @UpdateTimestamp
     @Column(nullable = false)
     private LocalDateTime updateAt = LocalDateTime.now();
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public UserDb getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(UserDb origin) {
+        this.origin = origin;
+    }
+
+    public String getOriginId() {
+        return originId;
+    }
+
+    public void setOriginId(String originId) {
+        this.originId = originId;
+    }
+
+    public UserDb getTarget() {
+        return target;
+    }
+
+    public void setTarget(UserDb target) {
+        this.target = target;
+    }
+
+    public String getTargetId() {
+        return targetId;
+    }
+
+    public void setTargetId(String targetId) {
+        this.targetId = targetId;
+    }
+
+    public UserDb getAlias() {
+        return alias;
+    }
+
+    public void setAlias(UserDb alias) {
+        this.alias = alias;
+    }
+
+    public LocalDateTime getCreatAt() {
+        return creatAt;
+    }
+
+    public void setCreatAt(LocalDateTime creatAt) {
+        this.creatAt = creatAt;
+    }
+
+    public LocalDateTime getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(LocalDateTime updateAt) {
+        this.updateAt = updateAt;
+    }
 }

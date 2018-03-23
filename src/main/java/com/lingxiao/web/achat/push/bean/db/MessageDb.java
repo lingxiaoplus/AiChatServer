@@ -1,6 +1,5 @@
 package com.lingxiao.web.achat.push.bean.db;
 
-import com.lingxiao.web.achat.push.bean.User;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -14,7 +13,7 @@ public class MessageDb {
     private static int TYPE_STR = 1;  //字符串
     private static int TYPE_PIC = 2;  //图片
     private static int TYPE_FILE = 3;  //文件
-    private static int TYPE_AUDIO = 3;  //语音
+    private static int TYPE_AUDIO = 4;  //语音
     //这是主键
     @Id
     @PrimaryKeyJoinColumn
@@ -48,9 +47,23 @@ public class MessageDb {
     @Column(nullable = false)
     private LocalDateTime updateAt = LocalDateTime.now();
 
-    private User sender;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "sendId")
+    private UserDb sender;
+    @Column(nullable = false,updatable = false,insertable = false)
+    private String sendId;
 
-    private User receiver;
+    @ManyToOne
+    @JoinColumn(name = "receiverId")
+    private UserDb receiver;
+    @Column(updatable = false,insertable = false)
+    private String receiverId;
+
+    @ManyToOne
+    @JoinColumn(name = "groupId")
+    private GroupDb group;
+    @Column(updatable = false,insertable = false)
+    private String groupId;
 
     public static int getTypeStr() {
         return TYPE_STR;
@@ -132,19 +145,5 @@ public class MessageDb {
         this.updateAt = updateAt;
     }
 
-    public User getSender() {
-        return sender;
-    }
 
-    public void setSender(User sender) {
-        this.sender = sender;
-    }
-
-    public User getReceiver() {
-        return receiver;
-    }
-
-    public void setReceiver(User receiver) {
-        this.receiver = receiver;
-    }
 }
