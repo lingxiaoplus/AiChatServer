@@ -1,6 +1,8 @@
 package com.lingxiao.web.achat.push.service;
 
 
+import com.google.gson.annotations.Expose;
+import com.lingxiao.web.achat.push.bean.api.account.RegisterModel;
 import com.lingxiao.web.achat.push.bean.db.UserDb;
 
 import javax.ws.rs.*;
@@ -10,23 +12,16 @@ import javax.ws.rs.core.MediaType;
 @Path("/account")
 public class AccountService {
 
-    @GET
-    @Path("/login")
-    public String get(){
-        return "You are login";
-    }
-
-
     //注解  来回都是json格式
     @POST
-    @Path("/login")
+    @Path("/register")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public UserDb post(){
-        UserDb user = new UserDb();
-        user.setName("美女");
-        user.setSex(2);
-        return user;
+    public RegisterModel register(RegisterModel model){
+        /*UserDb user = new UserDb();
+        user.setName(model.getName());
+        user.setSex(2);*/
+        return model;
     }
 
 }

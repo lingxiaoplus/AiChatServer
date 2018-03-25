@@ -1,7 +1,6 @@
 package com.lingxiao.web.achat.push.provider;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
@@ -76,6 +75,7 @@ public class GsonProvider<T> implements MessageBodyReader<T>, MessageBodyWriter<
                       MediaType mediaType, MultivaluedMap<String, String> httpHeaders,
                       InputStream entityStream) throws IOException, WebApplicationException {
         try (JsonReader reader = new JsonReader(new InputStreamReader(entityStream, "UTF-8"))) {
+
             return gson.fromJson(reader, genericType);
         }
     }

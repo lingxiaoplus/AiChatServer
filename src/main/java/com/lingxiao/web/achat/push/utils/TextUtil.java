@@ -1,6 +1,7 @@
 package com.lingxiao.web.achat.push.utils;
 
-import net.qiujuer.web.italker.push.provider.GsonProvider;
+
+import com.lingxiao.web.achat.push.provider.GsonProvider;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
